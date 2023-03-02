@@ -22,7 +22,7 @@ public class ex3 {
 		
 		if(mf >= 6) {
 			System.out.println("Aprovado");
-		} if (mf >= 4 ){
+		} if ((mf >= 4 ) && (mf < 6)){
 			System.out.println("Recuperação");
 		} if  (mf < 4){
 			System.out.println("Reprovado");

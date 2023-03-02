@@ -6,17 +6,17 @@ public class ex1 {
 	
 	public static void main(String[] args){
 		
-		double precolitro = 0;
-		Integer qtdlitro = 0;
+		double pl = 0;
+		Integer qtdl = 0;
 		
-		precolitro = Double.valueOf(JOptionPane.showInputDialog("Insira o valor da gasolina"));
-		qtdlitro = Integer.valueOf(JOptionPane.showInputDialog("Insira a quantidade da gasolina"));
+		pl = Double.valueOf(JOptionPane.showInputDialog("Insira o valor da gasolina"));
+		qtdl = Integer.valueOf(JOptionPane.showInputDialog("Insira a quantidade da gasolina"));
 		
-		JOptionPane.showMessageDialog(null, "Preço total: " +calctotal(qtdlitro, precolitro));
+		JOptionPane.showMessageDialog(null, "Preço total: " +calctotal(qtdl, pl));
 	}
 	
-	public static Double calctotal (Integer qtdlitro, Double precolitro){
-		Double totalpag = qtdlitro * precolitro;
+	public static Double calctotal (Integer qtdl, Double pl){
+		Double totalpag = qtdl * pl;
 		return totalpag;
 	}
 
