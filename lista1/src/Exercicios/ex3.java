@@ -21,11 +21,11 @@ public class ex3 {
 		Double mf = (nota1 + nota2 + nota3)/3;
 		
 		if(mf >= 6) {
-			System.out.println("Aprovado");
+			JOptionPane.showMessageDialog(null, "Aprovado");
 		} if ((mf >= 4 ) && (mf < 6)){
-			System.out.println("Recuperação");
+			JOptionPane.showMessageDialog(null, "Recuperação");
 		} if  (mf < 4){
-			System.out.println("Reprovado");
+			JOptionPane.showMessageDialog(null, "Reprovado");
 		}
 		return mf;
 	
