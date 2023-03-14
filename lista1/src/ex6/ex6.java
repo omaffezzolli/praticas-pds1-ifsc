@@ -7,15 +7,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ex6 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textName;
+	private JTextField textNota2;
+	private JTextField textNota1;
+	private JTextField textNota3;
 
 	/**
 	 * Launch the application.
@@ -45,25 +48,25 @@ public class ex6 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(106, 11, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textName = new JTextField();
+		textName.setBounds(106, 11, 86, 20);
+		contentPane.add(textName);
+		textName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(106, 78, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textNota2 = new JTextField();
+		textNota2.setBounds(106, 78, 86, 20);
+		contentPane.add(textNota2);
+		textNota2.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(10, 78, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textNota1 = new JTextField();
+		textNota1.setBounds(10, 78, 86, 20);
+		contentPane.add(textNota1);
+		textNota1.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(201, 78, 86, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textNota3 = new JTextField();
+		textNota3.setBounds(201, 78, 86, 20);
+		contentPane.add(textNota3);
+		textNota3.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Nome ");
 		lblNewLabel.setBounds(133, 42, 46, 14);
@@ -81,9 +84,31 @@ public class ex6 extends JFrame {
 		lblNewLabel_3.setBounds(224, 109, 46, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JButton btnNewButton = new JButton("Calcular");
-		btnNewButton.setBounds(297, 77, 89, 23);
-		contentPane.add(btnNewButton);
+		JButton btnCalc = new JButton("Calcular");
+		btnCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = textName.getText();
+				Double n1 = Double.valueOf(textNota1.getText());
+				Double n2 = Double.valueOf(textNota2.getText());
+				Double n3 = Double.valueOf(textNota3.getText());
+				
+				double mediaf = (n1 + n2 + n3)/3.0;
+				
+				if (mediaf<0 && mediaf>10) {
+					JOptionPane.showMessageDialog(btnCalc, "Erro, valor invalido");
+				}
+				if (mediaf > 0 && mediaf < 6) {
+					JOptionPane.showMessageDialog(btnCalc, "Reprovado");
+				}
+				if (mediaf <= 10 && mediaf >= 6) {
+					JOptionPane.showMessageDialog(btnCalc, "Aprovado");
+				}
+
+				
+			}
+		});
+		btnCalc.setBounds(297, 77, 89, 23);
+		contentPane.add(btnCalc);
 	}
 
 }
