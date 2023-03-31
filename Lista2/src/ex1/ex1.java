@@ -16,10 +16,8 @@ import java.awt.event.ActionEvent;
 public class ex1 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textnum;
-	private JTextField textresult;
-	
-	
+	private JTextField textN1;
+	private JTextField textNEdit;
 
 	/**
 	 * Launch the application.
@@ -41,6 +39,8 @@ public class ex1 extends JFrame {
 	 * Create the frame.
 	 */
 	public ex1() {
+		ArrayList<Double> num = new ArrayList<>();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,52 +49,50 @@ public class ex1 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textnum = new JTextField();
-		textnum.setBounds(52, 38, 86, 20);
-		contentPane.add(textnum);
-		textnum.setColumns(10);
+		textN1 = new JTextField();
+		textN1.setBounds(96, 11, 86, 20);
+		contentPane.add(textN1);
+		textN1.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Numero");
-		lblNewLabel.setBounds(52, 13, 46, 14);
+		textNEdit = new JTextField();
+		textNEdit.setEditable(false);
+		textNEdit.setColumns(10);
+		textNEdit.setBounds(96, 60, 86, 20);
+		contentPane.add(textNEdit);
+		
+		JLabel lblNewLabel = new JLabel("Número");
+		lblNewLabel.setBounds(28, 14, 46, 14);
 		contentPane.add(lblNewLabel);
 		
-		textresult = new JTextField();
-		textresult.setEditable(false);
-		textresult.setBounds(184, 38, 86, 20);
-		contentPane.add(textresult);
-		textresult.setColumns(10);
+		JLabel lblResultado = new JLabel("Resultado");
+		lblResultado.setBounds(28, 63, 58, 14);
+		contentPane.add(lblResultado);
 		
-		JLabel lblNewLabel_1 = new JLabel("Resultado");
-		lblNewLabel_1.setBounds(184, 13, 79, 14);
-		contentPane.add(lblNewLabel_1);
-		
-		ArrayList <Double> cadastrar = new ArrayList<>();
-		Double numero = Double.valueOf(textnum.getText());
-		
-		JButton btncadastrar = new JButton("Cadastrar");
-		btncadastrar.addActionListener(new ActionListener() {
+		JButton btnCadastrar = new JButton("CADASTRAR");
+		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.valueOf(textN1.getText());
 				
-				cadastrar.add(numero);
+				num.add(n1);
 			}
 		});
-		btncadastrar.setBounds(52, 84, 89, 23);
-		contentPane.add(btncadastrar);
+		btnCadastrar.setBounds(91, 110, 101, 23);
+		contentPane.add(btnCadastrar);
 		
-		JButton btnexibir = new JButton("Exibir");
-		btnexibir.addActionListener(new ActionListener() {
+		JButton btnExibir = new JButton("EXIBIR");
+		btnExibir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Double count = 0.0;
-				for (int i = 0; i < numero; i++) {
-					if (numero/2 == 0) {
-						count ++;
-						JOptionPane.showMessageDialog(null, count);
+				Integer cont = 0;
+				for(int i=0; i<num.size();i++) {
+					if(num.get(i)%2==0) {
+						cont++;
 					}
 				}
+				textNEdit.setText(String.valueOf(cont));
+				
 			}
 		});
-		btnexibir.setBounds(181, 84, 89, 23);
-		contentPane.add(btnexibir);
+		btnExibir.setBounds(91, 144, 101, 23);
+		contentPane.add(btnExibir);
 	}
 }
